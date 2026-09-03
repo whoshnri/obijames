@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { RoughAnnotate } from "./rough-annotate";
 
 const footerLinks = [
   { label: "Executive Development", href: "/executive-development" },
   { label: "Leadership Teams", href: "/leadership-team-development" },
   { label: "Organisational Capability", href: "/organisational-capability" },
+  { label: "The Book", href: "/the-book" },
   { label: "Diagnostics", href: "/diagnostics" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -25,14 +27,31 @@ export function SiteFooter() {
           <p className="mt-6 max-w-sm text-base font-medium leading-7 text-white/70">
             Executive advisory for organisations building shared leadership.
           </p>
-          <div className="mt-6 space-y-2 text-sm font-semibold text-white">
-            <a href="tel:+442032907894" className="block transition hover:text-white/80">
+          <RoughAnnotate
+            type="bracket"
+            brackets={["left", "right"]}
+            color="var(--obi-gold)"
+            strokeWidth={1.5}
+            iterations={2}
+            padding={[6, 12]}
+            animationDuration={900}
+            loop
+            loopDelay={2800}
+            className="mt-6 inline-block space-y-2 text-sm font-semibold text-white"
+          >
+            <a
+              href="tel:+442032907894"
+              className="block transition hover:text-white/80"
+            >
               +44 (0) 20 3290 7894
             </a>
-            <a href="mailto:info@obijames.com" className="block transition hover:text-white/80">
+            <a
+              href="mailto:info@obijames.com"
+              className="block transition hover:text-white/80"
+            >
               info@obijames.com
             </a>
-          </div>
+          </RoughAnnotate>
         </div>
 
         <nav className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-12 sm:gap-y-4">

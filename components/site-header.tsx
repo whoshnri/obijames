@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Executive Development", href: "/executive-development" },
   { label: "Leadership Teams", href: "/leadership-team-development" },
   { label: "Organisational Capability", href: "/organisational-capability" },
+  { label: "The Book", href: "/the-book" },
   { label: "Diagnostics", href: "/diagnostics" },
   { label: "About", href: "/about" },
 ];
@@ -24,14 +25,14 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="relative z-20 w-full border-b border-white/10 bg-[var(--obi-navy)]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5 md:px-10 lg:px-14">
+      <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[var(--obi-navy)]">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-2 md:py-5 md:px-10 lg:px-14">
           <nav className="hidden items-center gap-8 lg:flex xl:gap-10">
             {navLinks.slice(0, 3).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[15px] font-semibold text-white/85 transition-colors hover:text-white"
+                className="text-xs font-semibold text-white transition-colors hover:text-white"
               >
                 {link.label}
               </Link>
@@ -40,7 +41,7 @@ export function SiteHeader() {
 
           <Link
             href="/"
-            className="absolute left-1/2 -translate-x-1/2"
+            className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 "
             aria-label="Obi James Consultancy home"
           >
             <Image
@@ -49,7 +50,7 @@ export function SiteHeader() {
               width={120}
               height={120}
               priority
-              className="h-[4.5rem] w-auto object-contain md:h-20"
+              className="h-14 w-auto md:w-auto p-0 object-cover md:h-28"
             />
           </Link>
 
@@ -59,7 +60,7 @@ export function SiteHeader() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-[15px] font-semibold text-white/85 transition-colors hover:text-white"
+                  className="text-xs font-semibold text-white transition-colors hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -67,14 +68,14 @@ export function SiteHeader() {
             </nav>
             <Link
               href="/diagnostics"
-              className="hidden rounded-full bg-white px-6 py-3 text-[15px] font-semibold text-[var(--obi-navy)] transition hover:bg-white/90 sm:inline-flex"
+              className="hidden bg-white px-6 py-3 text-xs font-semibold text-[var(--obi-navy)] transition hover:bg-white/90 sm:inline-flex"
             >
               Start a Diagnostic
             </Link>
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center border border-white/25 text-white lg:hidden"
               aria-expanded={open}
               aria-label="Open menu"
             >
@@ -101,7 +102,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white"
+              className="inline-flex h-11 w-11 items-center justify-center border border-white/25 text-white"
               aria-label="Close menu"
             >
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
@@ -117,7 +118,7 @@ export function SiteHeader() {
                   <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block py-3 text-3xl font-semibold leading-tight text-white transition hover:text-[var(--obi-gold)]"
+                    className="block py-3 text-3xl font-bold text-white transition hover:text-white/80"
                   >
                     {link.label}
                   </Link>
@@ -130,7 +131,7 @@ export function SiteHeader() {
             <Link
               href="/diagnostics"
               onClick={() => setOpen(false)}
-              className="flex w-full items-center justify-center rounded-full bg-white px-6 py-4 text-base font-semibold text-[var(--obi-navy)]"
+              className="flex w-full items-center justify-center bg-white px-6 py-4 text-base font-semibold text-[var(--obi-navy)]"
             >
               Start a Diagnostic
             </Link>

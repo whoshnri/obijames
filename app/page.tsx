@@ -1,3 +1,5 @@
+import { BlogsSection } from "@/components/blogs-section";
+import { BookFeatureSection } from "@/components/book-feature-section";
 import { CertificationsSection } from "@/components/certifications-section";
 import { ClientsSection } from "@/components/clients-section";
 import { HeroSection } from "@/components/hero-section";
@@ -15,9 +17,11 @@ export default function Home() {
       <main>
         <HeroSection />
         <PillarsSection />
+        <BookFeatureSection />
         <ClientsSection />
         <CertificationsSection />
         <TestimonialsSection />
+        <BlogsSection />
       </main>
       <SiteFooter />
     </>

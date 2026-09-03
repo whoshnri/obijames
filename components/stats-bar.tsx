@@ -28,10 +28,10 @@ export function StatsBar() {
               index > 0 ? "md:border-l md:border-white/10" : ""
             } ${index % 2 === 1 ? "border-l border-white/10 md:border-l-0" : ""}`}
           >
-            <p className="font-display text-3xl font-medium text-white md:text-4xl">
+            <p className="text-4xl font-display font-bold text-white md:text-5xl">
               {stat.value}
             </p>
-            <p className="mt-3 max-w-[14rem] text-xs font-medium leading-5 text-white/80 sm:text-sm">
+            <p className="mt-3 max-w-[14rem] text-xs font-medium text-white/80 sm:text-sm">
               {stat.label}
             </p>
           </div>

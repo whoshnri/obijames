@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { RoughAnnotate } from "./rough-annotate";
 import { VennDiagram } from "./venn-diagram";
 
 const pillars = [
@@ -36,47 +37,47 @@ const pillars = [
 
 export function PillarsSection() {
   return (
-    <section className="bg-[var(--obi-bg-elevated)] px-6 py-28 md:px-10 lg:px-14">
+    <section className="bg-[var(--obi-bg)] px-6 py-28 md:px-10 lg:px-14">
       <div className="mx-auto flex max-w-7xl flex-col gap-16 lg:flex-row lg:items-start lg:gap-14 xl:gap-20">
-        <aside className="lg:sticky lg:top-28 lg:w-[32%] lg:shrink-0 xl:w-[30%]">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--obi-gold)]">
-            Our Differentiator
-          </p>
-          <h2 className="mt-5 font-display text-4xl leading-[1.1] text-white sm:text-5xl lg:text-[3.25rem]">
+        <aside className="lg:sticky lg:top-28 lg:w-[45%] lg:shrink-0">
+          <h2 className="text-4xl font-bold text-[var(--obi-navy)] sm:text-5xl lg:text-6xl">
             We connect the leader, the leadership team, and the organisation
           </h2>
-          <p className="mt-6 text-lg leading-8 text-white/65">
-            Many firms develop individuals. Others redesign structures. We
-            connect all three so leadership becomes deep-rooted — part of
-            culture, not dependent on a few people.
+          <p className="mt-6 text-lg text-[var(--obi-muted)]">
+            Many firms develop individuals. Others redesign structures. We{" "}
+            <RoughAnnotate type="circle" color="var(--obi-gold)" strokeWidth={1.5} iterations={2} padding={4}>
+              connect
+            </RoughAnnotate>{" "}
+            all three so leadership becomes deep-rooted - part of culture, not
+            dependent on a few people.
           </p>
           <div className="my-16 md:my-20 lg:my-12">
             <VennDiagram />
           </div>
         </aside>
 
-        <div className="min-w-0 flex-1 divide-y divide-white/10 border-t border-white/10 lg:border-t-0">
+        <div className="min-w-0 flex-1 divide-y divide-[var(--obi-border)] border-t border-[var(--obi-border)] lg:border-t-0">
           {pillars.map((pillar) => (
             <article
               key={pillar.href}
-              className="grid gap-6 py-12 md:grid-cols-[5rem_1fr] md:gap-10 md:py-16"
+              className="grid gap-3 py-12 grid-cols-[5rem_1fr] md:gap-10 md:py-16"
             >
-              <p className="font-display text-4xl text-[var(--obi-gold)]/80 md:text-5xl">
+              <p className="text-4xl font-bold text-[var(--obi-gold)] md:text-5xl">
                 {pillar.number}
               </p>
               <div>
-                <h3 className="text-2xl font-semibold text-white md:text-3xl">
+                <h3 className="text-2xl font-bold text-[var(--obi-navy)] md:text-3xl">
                   {pillar.title}
                 </h3>
-                <p className="mt-4 font-display text-xl italic leading-relaxed text-white/80 md:text-2xl">
+                <p className="mt-4 text-xl font-display text-[var(--obi-navy)]/80 md:text-2xl">
                   &ldquo;{pillar.question}&rdquo;
                 </p>
-                <p className="mt-5 text-base leading-7 text-white/55">
+                <p className="mt-5 text-base text-[var(--obi-muted)]">
                   {pillar.summary}
                 </p>
                 <Link
                   href={pillar.href}
-                  className="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[var(--obi-navy)] transition hover:bg-white/90"
+                  className="mt-8 inline-flex bg-[var(--obi-navy)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--obi-navy-light)]"
                 >
                   {pillar.cta}
                 </Link>

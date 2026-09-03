@@ -6,12 +6,15 @@
   --obi-primary: #2563eb;
   --obi-gold: #c9a84c;
   --obi-gold-soft: #fbf5df;
-  --obi-muted: #94a3b8;
+  --obi-muted: #64748b;
   --obi-surface: #ffffff;
-  --obi-bg: #060d18;
-  --obi-bg-elevated: #0c1628;
+  --obi-bg: #f7f8fa;
+  --obi-bg-elevated: #ffffff;
+  --obi-border: #e2e8f0;
+  --obi-hero-bg: #060d18;
+  --obi-radius: 6px;
   --background: var(--obi-bg);
-  --foreground: #f8fafc;
+  --foreground: #0f1f3d;
 }
 
 @theme inline {
@@ -23,6 +26,8 @@
   --color-obi-gold: var(--obi-gold);
   --color-obi-gold-soft: var(--obi-gold-soft);
   --color-obi-muted: var(--obi-muted);
+  --color-obi-border: var(--obi-border);
+  --radius-sm: 6px;
   --font-sans: var(--font-inter);
   --font-display: var(--font-playfair);
   --animate-marquee: marquee var(--duration) infinite linear;
@@ -52,13 +57,23 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+button,
+[type="button"],
+[type="submit"],
+[type="reset"],
+a[class*="inline-flex"],
+a[class*="bg-"],
+a[class*="border"] {
+  border-radius: 6px !important;
 }
 
 .font-display {
