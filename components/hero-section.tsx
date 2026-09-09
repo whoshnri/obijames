@@ -5,7 +5,7 @@ import { StatsBar } from "./stats-bar";
 
 export function HeroSection() {
   return (
-    <section className="hero-glow relative flex min-h-screen flex-col overflow-hidden">
+    <section className="bg-hero relative flex min-h-screen flex-col overflow-x-clip">
       <div className="flex flex-1 flex-col justify-center px-6 pb-0 pt-4 md:px-10 lg:px-14">
         <div className="mx-auto grid w-full max-w-7xl flex-1 items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div className="max-w-2xl">

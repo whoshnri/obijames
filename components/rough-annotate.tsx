@@ -124,9 +124,11 @@ export function RoughAnnotate({
     loopDelay,
   ]);
 
+  // rough-notation places an absolute SVG as a sibling; a relative wrapper
+  // makes that SVG share the text's box so scroll can't desync them.
   return (
-    <span ref={ref} className={className}>
-      {children}
+    <span className={["relative inline-block", className].filter(Boolean).join(" ")}>
+      <span ref={ref}>{children}</span>
     </span>
   );
 }

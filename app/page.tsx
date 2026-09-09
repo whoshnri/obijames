@@ -11,7 +11,7 @@ import { TopBar } from "@/components/top-bar";
 
 export default function Home() {
   return (
-    <>
+    <div className="max-w-8xl">
       <TopBar />
       <SiteHeader />
       <main>
@@ -24,6 +24,6 @@ export default function Home() {
         <BlogsSection />
       </main>
       <SiteFooter />
-    </>
+    </div>
   );
 }

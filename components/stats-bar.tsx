@@ -24,14 +24,16 @@ export function StatsBar() {
         {stats.map((stat, index) => (
           <div
             key={stat.label}
-            className={`flex flex-col items-center px-5 py-8 text-center md:px-8 ${
-              index > 0 ? "md:border-l md:border-white/10" : ""
-            } ${index % 2 === 1 ? "border-l border-white/10 md:border-l-0" : ""}`}
+            className={`flex flex-col items-center px-5 py-8 text-center md:px-8 ${index !== 0 ? "md:border-l md:border-white/10" : ""
+              } 
+              ${index == 0 && "max-md:border-b max-md:border-r border-white/10"}
+              ${index == 3 && "max-md:border-t max-md:border-l border-white/10"}
+              `}
           >
-            <p className="text-4xl font-display font-bold text-white md:text-5xl">
+            <p className="text-4xl font-bold text-white md:text-5xl">
               {stat.value}
             </p>
-            <p className="mt-3 max-w-[14rem] text-xs font-medium text-white/80 sm:text-sm">
+            <p className="mt-3 max-w-56 text-xs font-medium text-white/80 sm:text-sm">
               {stat.label}
             </p>
           </div>

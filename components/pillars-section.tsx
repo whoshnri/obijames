@@ -9,7 +9,7 @@ const pillars = [
     question:
       "Who must this leader become for the organisation to succeed at its next level?",
     summary:
-      "For boards and HR leaders worried about a specific leader or pipeline not performing at the next level.",
+      "Developing leaders who can share power, grow capability and lead through others",
     href: "/executive-development",
     cta: "Explore Executive Development",
   },
@@ -19,7 +19,7 @@ const pillars = [
     question:
       "What must become possible between these leaders for the organisation to perform?",
     summary:
-      "For CEOs and chairs with strong individuals who still are not functioning as one team.",
+      "Enabling senior teams to operate as one and take collective ownership of organisational performance.",
     href: "/leadership-team-development",
     cta: "Explore Team Development",
   },
@@ -29,9 +29,9 @@ const pillars = [
     question:
       "What must change in the organisation so that effective leadership is possible and sustainable?",
     summary:
-      "For leaders thinking about scale, succession, or what happens when a key person leaves.",
+      "Building the structures, systems and leadership architecture required to perform, transform and scale.",
     href: "/organisational-capability",
-    cta: "Start With the Diagnostic",
+    cta: "Explore Organisational Capability",
   },
 ];
 
@@ -39,13 +39,19 @@ export function PillarsSection() {
   return (
     <section className="bg-[var(--obi-bg)] px-6 py-28 md:px-10 lg:px-14">
       <div className="mx-auto flex max-w-7xl flex-col gap-16 lg:flex-row lg:items-start lg:gap-14 xl:gap-20">
-        <aside className="lg:sticky lg:top-28 lg:w-[45%] lg:shrink-0">
+        <aside className="lg:w-[45%] lg:shrink-0">
           <h2 className="text-4xl font-bold text-[var(--obi-navy)] sm:text-5xl lg:text-6xl">
-            We connect the leader, the leadership team, and the organisation
+            From leadership dependency to organisational capability
           </h2>
           <p className="mt-6 text-lg text-[var(--obi-muted)]">
             Many firms develop individuals. Others redesign structures. We{" "}
-            <RoughAnnotate type="circle" color="var(--obi-gold)" strokeWidth={1.5} iterations={2} padding={4}>
+            <RoughAnnotate
+              type="circle"
+              color="var(--obi-gold)"
+              strokeWidth={1.5}
+              iterations={2}
+              padding={4}
+            >
               connect
             </RoughAnnotate>{" "}
             all three so leadership becomes deep-rooted - part of culture, not

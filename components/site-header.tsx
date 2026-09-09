@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useSmoothScroll } from "@/components/smooth-scroll";
 
 const navLinks = [
   { label: "Executive Development", href: "/executive-development" },
@@ -15,13 +16,22 @@ const navLinks = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const { lenis } = useSmoothScroll();
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (open) {
+      lenis?.stop();
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      lenis?.start();
+      document.documentElement.style.overflow = "";
+    }
+
     return () => {
-      document.body.style.overflow = "";
+      lenis?.start();
+      document.documentElement.style.overflow = "";
     };
-  }, [open]);
+  }, [open, lenis]);
 
   return (
     <>
