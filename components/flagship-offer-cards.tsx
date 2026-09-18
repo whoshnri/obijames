@@ -85,7 +85,7 @@ export function FlagshipOfferCards({
                   >
                     <span
                       className={[
-                        "inline-flex h-10 w-10 items-center justify-center md:h-11 md:w-11",
+                        "inline-flex h-10 w-10 items-center rounded-lg justify-center md:h-11 md:w-11",
                         navy
                           ? "bg-white text-[var(--obi-navy)]"
                           : "bg-[var(--obi-gold-soft)] text-[var(--obi-accent)]",

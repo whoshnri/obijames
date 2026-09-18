@@ -1,14 +1,8 @@
-export type BlogPost = {
-  title: string;
-  slug: string;
-  date: string;
-  category: string;
-  author: string;
-  image: string;
-  href: string;
-};
+export type { BlogPostCard as BlogPost } from "@/lib/content";
+export { toBlogCard } from "@/lib/content";
 
-export const recentBlogs: BlogPost[] = [
+/** Static fallback used when the public API is unreachable or empty. */
+export const recentBlogs = [
   {
     title: "When and How to Share Tough People Decisions Before the Holidays",
     slug: "when-and-how-to-share-tough-people-decisions-before-the-holidays",
@@ -17,7 +11,7 @@ export const recentBlogs: BlogPost[] = [
     author: "Obi James",
     image:
       "https://obijames.com/wp-content/uploads/2025/12/When-and-How-to-Share-Tough-People-Decisions-Before-the-Holidays.jpg",
-    href: "https://obijames.com/when-and-how-to-share-tough-people-decisions-before-the-holidays/",
+    href: "/blogs",
   },
   {
     title: "Every Resignation Is a Love Story Ending",
@@ -27,7 +21,7 @@ export const recentBlogs: BlogPost[] = [
     author: "Obi James",
     image:
       "https://obijames.com/wp-content/uploads/2025/12/Every-Resignation-Is-a-Love-Story-Ending.jpg",
-    href: "https://obijames.com/every-resignation-is-a-love-story-ending/",
+    href: "/blogs",
   },
   {
     title:
@@ -38,7 +32,7 @@ export const recentBlogs: BlogPost[] = [
     author: "Obi James",
     image:
       "https://obijames.com/wp-content/uploads/2025/12/Black-Representation-at-the-World-Cities-Culture-Forum-2025-%E2%80%93-Amsterdam.jpg",
-    href: "https://obijames.com/black-representation-at-the-world-cities-culture-forum-2025-amsterdam/",
+    href: "/blogs",
   },
   {
     title: "When History Walks Into the Workplace",
@@ -48,6 +42,6 @@ export const recentBlogs: BlogPost[] = [
     author: "Obi James",
     image:
       "https://obijames.com/wp-content/uploads/2025/12/When-History-Walks-Into-the-Workplace.jpg",
-    href: "https://obijames.com/when-history-walks-into-the-workplace/",
+    href: "/blogs",
   },
-];
+] as const;

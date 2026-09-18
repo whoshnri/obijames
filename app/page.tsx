@@ -8,8 +8,13 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { TopBar } from "@/components/top-bar";
+import { fetchPublishedBlogs, toBlogCard } from "@/lib/content";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const posts = (await fetchPublishedBlogs(4)).map(toBlogCard);
+
   return (
     <div className="max-w-8xl">
       <TopBar />
@@ -21,7 +26,7 @@ export default function Home() {
         <ClientsSection />
         <CertificationsSection />
         <TestimonialsSection />
-        <BlogsSection />
+        <BlogsSection posts={posts} />
       </main>
       <SiteFooter />
     </div>

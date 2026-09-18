@@ -45,7 +45,6 @@ export function LeadershipTeamHeroSequence({
   const problemLeadRef = useRef<HTMLParagraphElement>(null);
   const problemTrailRef = useRef<HTMLParagraphElement>(null);
   const problemBodyRef = useRef<HTMLParagraphElement>(null);
-  const problemCloseRef = useRef<HTMLParagraphElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
   const { lenis } = useSmoothScroll();
   const [activeCard, setActiveCard] = useState(0);
@@ -64,7 +63,6 @@ export function LeadershipTeamHeroSequence({
     const problemLead = problemLeadRef.current;
     const problemTrail = problemTrailRef.current;
     const problemBodyEl = problemBodyRef.current;
-    const problemCloseEl = problemCloseRef.current;
     const cards = cardsRef.current;
     if (
       !root ||
@@ -75,7 +73,6 @@ export function LeadershipTeamHeroSequence({
       !problemLead ||
       !problemTrail ||
       !problemBodyEl ||
-      !problemCloseEl ||
       !cards
     )
       return;
@@ -135,7 +132,7 @@ export function LeadershipTeamHeroSequence({
       gsap.set(heroCopy, { opacity: 0 });
       gsap.set(problemPanel, { opacity: 1 });
       gsap.set(
-        [problemLead, problemTrail, problemBodyEl, problemCloseEl, ...cardEls],
+        [problemLead, problemTrail, problemBodyEl, ...cardEls],
         { opacity: 1, y: 0, scale: 1 },
       );
       gsap.set(root, { backgroundColor: "var(--obi-navy)" });
@@ -159,7 +156,7 @@ export function LeadershipTeamHeroSequence({
         });
         gsap.set(heroCopy, { opacity: 1, x: 0, y: 0 });
         gsap.set(problemPanel, { opacity: 0 });
-        gsap.set([problemLead, problemTrail, problemBodyEl, problemCloseEl], {
+        gsap.set([problemLead, problemTrail, problemBodyEl], {
           opacity: 0,
           y: 22,
         });
@@ -202,7 +199,6 @@ export function LeadershipTeamHeroSequence({
           .to(problemLead, { opacity: 1, y: 0, duration: 0.35 }, 0.65)
           .to(problemTrail, { opacity: 1, y: 0, duration: 0.35 }, 0.78)
           .to(problemBodyEl, { opacity: 1, y: 0, duration: 0.35 }, 0.92)
-          .to(problemCloseEl, { opacity: 1, y: 0, duration: 0.35 }, 1.08)
           .to(
             cardEls,
             {
@@ -228,7 +224,7 @@ export function LeadershipTeamHeroSequence({
         });
         gsap.set(heroCopy, { opacity: 1, x: 0, y: 0 });
         gsap.set(problemPanel, { opacity: 0 });
-        gsap.set([problemLead, problemTrail, problemBodyEl, problemCloseEl], {
+        gsap.set([problemLead, problemTrail, problemBodyEl], {
           opacity: 0,
           y: 16,
         });
@@ -272,7 +268,6 @@ export function LeadershipTeamHeroSequence({
           .to(problemLead, { opacity: 1, y: 0, duration: 0.3 }, 0.58)
           .to(problemTrail, { opacity: 1, y: 0, duration: 0.3 }, 0.68)
           .to(problemBodyEl, { opacity: 1, y: 0, duration: 0.3 }, 0.8)
-          .to(problemCloseEl, { opacity: 1, y: 0, duration: 0.3 }, 0.92)
           .to(
             cardEls,
             {
@@ -403,12 +398,6 @@ export function LeadershipTeamHeroSequence({
               className="mt-5 text-sm leading-6 text-white/65 sm:text-base sm:leading-7 md:mt-8 md:text-lg md:leading-8"
             >
               {problemBody}
-            </p>
-            <p
-              ref={problemCloseRef}
-              className="mt-4 border-l-2 border-[var(--obi-gold-soft)] pl-4 text-sm leading-6 font-semibold text-[var(--obi-gold-soft)] sm:text-base sm:leading-7 md:mt-6 md:text-lg md:leading-8"
-            >
-              {problemClose}
             </p>
           </div>
 

@@ -7,9 +7,9 @@ const footerLinks = [
   { label: "Leadership Teams", href: "/leadership-team-development" },
   { label: "Organisational Capability", href: "/organisational-capability" },
   { label: "The Book", href: "/the-book" },
-  { label: "Diagnostics", href: "/diagnostics" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Videos", href: "/videos" },
+  { label: "Contact", href: "mailto:info@obijames.com" },
 ];
 
 export function SiteFooter() {

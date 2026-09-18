@@ -15,7 +15,22 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "obijames.com",
-        pathname: "/wp-content/uploads/**",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "i.ytimg.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "*.r2.dev",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "*.amazonaws.com",
+        pathname: "/**",
       },
     ],
   },

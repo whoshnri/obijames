@@ -10,8 +10,8 @@ const navLinks = [
   { label: "Leadership Teams", href: "/leadership-team-development" },
   { label: "Organisational Capability", href: "/organisational-capability" },
   { label: "The Book", href: "/the-book" },
-  { label: "Diagnostics", href: "/diagnostics" },
-  { label: "About", href: "/about" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Videos", href: "/videos" },
 ];
 
 export function SiteHeader() {
@@ -36,7 +36,7 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[var(--obi-navy)]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-2 md:py-5 md:px-10 lg:px-14">
+        <div className="mx-auto flex max-w-9xl items-center justify-between gap-6 px-6 py-2 md:py-5 md:px-10 lg:px-14">
           <nav className="hidden items-center gap-8 lg:flex xl:gap-10">
             {navLinks.slice(0, 3).map((link) => (
               <Link

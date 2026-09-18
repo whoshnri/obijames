@@ -32,11 +32,11 @@ export function ClientsSection() {
             Trusted across industries for{" "}
             <RoughAnnotate
               type="highlight"
-              color="#e8c96a"
+              color="var(--obi-gold)"
               strokeWidth={1}
               iterations={1}
               multiline={false}
-              className="whitespace-nowrap"
+              className="whitespace-nowrap text-white"
             >
               sustained outcomes
             </RoughAnnotate>{" "}

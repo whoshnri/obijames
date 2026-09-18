@@ -286,9 +286,6 @@ export function ExecutiveDevelopmentHeroSequence({
           >
             <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/60 to-black/75" />
             <div className="absolute top-1/2 left-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 px-6 py-8 sm:px-8">
-              <p className="text-center text-xs font-semibold tracking-[0.18em] text-[var(--obi-gold-soft)] uppercase">
-                Leaders who
-              </p>
               <h2
                 ref={mobileTitleRef}
                 className="mt-3 text-center text-[1.35rem] leading-[1.25] font-bold tracking-tight text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.45)]"
@@ -313,9 +310,6 @@ export function ExecutiveDevelopmentHeroSequence({
           className="pointer-events-none absolute top-0 left-0 hidden h-full w-1/2 items-center justify-center px-8 opacity-0 md:flex lg:px-12 xl:px-16"
         >
           <div className="w-full max-w-md">
-            <p className="text-xs font-semibold tracking-[0.18em] text-[var(--obi-gold)] uppercase">
-              Leaders who
-            </p>
             <h2
               ref={sideTitleRef}
               className="mt-4 text-[1.65rem] leading-[1.2] font-bold tracking-tight text-[var(--obi-navy)] lg:text-3xl lg:leading-[1.15]"
