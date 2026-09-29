@@ -52,11 +52,44 @@ export function toBlogCard(post: PublicBlogPost): BlogPostCard {
   };
 }
 
+export type PublishedBlogsPage = {
+  posts: PublicBlogPost[];
+  total: number;
+  limit: number;
+  offset: number;
+  categories: string[];
+};
+
 export async function fetchPublishedBlogs(limit = 50) {
-  const posts = await publicApiGet<PublicBlogPost[]>(
+  const page = await publicApiGet<PublishedBlogsPage>(
     `/public/blogs?limit=${limit}`,
   );
-  return posts ?? [];
+  return page?.posts ?? [];
+}
+
+export async function fetchPublishedBlogsPage(
+  params: {
+    q?: string;
+    categories?: string[];
+    limit?: number;
+    offset?: number;
+  } = {},
+): Promise<PublishedBlogsPage> {
+  const search = new URLSearchParams();
+  if (params.q?.trim()) search.set("q", params.q.trim());
+  for (const category of params.categories ?? []) {
+    if (category.trim()) search.append("category", category.trim());
+  }
+  search.set("limit", String(params.limit ?? 10));
+  search.set("offset", String(params.offset ?? 0));
+
+  const page = await publicApiGet<PublishedBlogsPage>(
+    `/public/blogs?${search.toString()}`,
+    { cache: "no-store" },
+  );
+  return (
+    page ?? { posts: [], total: 0, limit: params.limit ?? 10, offset: params.offset ?? 0, categories: [] }
+  );
 }
 
 export async function fetchPublishedBlogBySlug(slug: string) {
@@ -70,6 +103,27 @@ export async function fetchPublishedVideos(limit = 50) {
     `/public/videos?limit=${limit}`,
   );
   return videos ?? [];
+}
+
+export async function fetchPublishedVideoBySlug(slug: string) {
+  return publicApiGet<PublicVideo>(
+    `/public/videos/${encodeURIComponent(slug)}`,
+  );
+}
+
+export type PublicComment = {
+  id: string;
+  name: string;
+  body: string;
+  createdAt: string;
+};
+
+export async function fetchBlogComments(slug: string) {
+  const data = await publicApiGet<{ comments: PublicComment[] }>(
+    `/public/blogs/${encodeURIComponent(slug)}/comments`,
+    { cache: "no-store" },
+  );
+  return data?.comments ?? [];
 }
 
 export function formatContentDate(value: string | null | undefined) {

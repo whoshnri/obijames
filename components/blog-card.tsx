@@ -35,7 +35,7 @@ export function BlogCard({ post, size = "sm" }: BlogCardProps) {
 
       <div className="relative aspect-[4/3] overflow-hidden bg-[var(--obi-navy)]/5">
         <Image
-          src={post.image}
+          src={post.image || "/obi1.jpeg"}
           alt=""
           fill
           className="object-cover transition duration-700 ease-out group-hover:scale-[1.06]"
@@ -44,7 +44,7 @@ export function BlogCard({ post, size = "sm" }: BlogCardProps) {
               ? "(max-width: 1024px) 90vw, 33vw"
               : "(max-width: 1024px) 90vw, 25vw"
           }
-          unoptimized={post.image.startsWith("http")}
+          unoptimized={(post.image ?? "").startsWith("http")}
         />
         <div
           aria-hidden
@@ -66,9 +66,20 @@ export function BlogCard({ post, size = "sm" }: BlogCardProps) {
         </span>
       </div>
 
-      <div className={size === "lg" ? "mt-5 flex flex-1 flex-col" : "mt-3 flex flex-1 flex-col"}>
+      <div
+        className={
+          size === "lg"
+            ? "mt-3 flex flex-1 flex-col sm:mt-5"
+            : "mt-3 flex flex-1 flex-col"
+        }
+      >
         {showCategory ? (
-          <p className="text-xs font-semibold tracking-[0.14em] text-[var(--obi-muted)] uppercase">
+          <p
+            className={[
+              "font-semibold tracking-[0.14em] text-[var(--obi-muted)] uppercase",
+              size === "lg" ? "text-[10px] sm:text-xs" : "text-xs",
+            ].join(" ")}
+          >
             {post.category}
           </p>
         ) : null}
@@ -77,7 +88,7 @@ export function BlogCard({ post, size = "sm" }: BlogCardProps) {
             "font-bold tracking-tight text-[var(--obi-navy)] transition duration-300 group-hover:text-[var(--obi-navy-light)]",
             showCategory ? "mt-2" : "mt-0",
             size === "lg"
-              ? "text-xl leading-snug md:text-[1.35rem]"
+              ? "text-sm leading-snug sm:text-lg md:text-xl lg:text-[1.35rem]"
               : "text-base leading-snug md:text-lg",
           ].join(" ")}
         >
@@ -86,11 +97,16 @@ export function BlogCard({ post, size = "sm" }: BlogCardProps) {
           </span>
         </h3>
         {post.excerpt && size === "lg" ? (
-          <p className="mt-3 line-clamp-2 text-sm leading-6 text-[var(--obi-muted)] transition duration-300 group-hover:text-[var(--obi-navy)]/70">
+          <p className="mt-3 hidden line-clamp-2 text-sm leading-6 text-[var(--obi-muted)] transition duration-300 group-hover:text-[var(--obi-navy)]/70 sm:block">
             {post.excerpt}
           </p>
         ) : null}
-        <p className="mt-auto pt-4 text-xs text-[var(--obi-muted)] transition duration-300 group-hover:text-[var(--obi-navy)]/65">
+        <p
+          className={[
+            "mt-auto text-[var(--obi-muted)] transition duration-300 group-hover:text-[var(--obi-navy)]/65",
+            size === "lg" ? "pt-3 text-[10px] sm:pt-4 sm:text-xs" : "pt-4 text-xs",
+          ].join(" ")}
+        >
           {post.author} · {formatBlogDate(post.date)}
         </p>
       </div>

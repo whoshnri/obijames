@@ -8,6 +8,29 @@ export function getPublicApiBaseUrl() {
   );
 }
 
+export async function publicApiPost<T>(path: string, body: unknown): Promise<T> {
+  const url = `${getPublicApiBaseUrl()}${path.startsWith("/") ? path : `/${path}`}`;
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+
+  const payload = (await response.json().catch(() => null)) as
+    | ({ error?: string } & Record<string, unknown>)
+    | null;
+
+  if (!response.ok) {
+    throw new Error(payload?.error ?? "Something went wrong. Please try again.");
+  }
+
+  return payload as T;
+}
+
 export async function publicApiGet<T>(
   path: string,
   init?: RequestInit,

@@ -3,10 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BlogHtml } from "@/components/blog-html";
+import { BlogComments } from "@/components/blog-comments";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TopBar } from "@/components/top-bar";
 import {
+  fetchBlogComments,
   fetchPublishedBlogBySlug,
   fetchPublishedBlogs,
   formatContentDate,
@@ -46,6 +48,7 @@ export default async function BlogSlugPage({ params }: BlogSlugPageProps) {
   const { slug } = await params;
   const post = await fetchPublishedBlogBySlug(slug);
   if (!post) notFound();
+  const comments = await fetchBlogComments(post.slug);
 
   return (
     <>
@@ -129,6 +132,10 @@ export default async function BlogSlugPage({ params }: BlogSlugPageProps) {
             </div>
           </div>
         </article>
+
+        <section className="border-t border-[var(--obi-border)] bg-[var(--obi-bg)] px-6 py-14 md:px-10 md:py-16 lg:px-14">
+          <BlogComments slug={post.slug} initialComments={comments} />
+        </section>
 
         <section className="border-t border-[var(--obi-border)] bg-[var(--obi-navy)] px-6 py-16 md:px-10 lg:px-14">
           <div className="mx-auto flex max-w-3xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
